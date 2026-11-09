@@ -1,0 +1,8 @@
+EL BOSQUE DE LAS LETRAS — CHIPIPATA PRO
+
+100 ejercicios, 8 mundos.
+
+Para probar: abra index.html.
+Para GitHub Pages: suba la carpeta bosque-letras dentro de juegos, de modo que quede juegos/bosque-letras/index.html.
+En grado-1.html agregue un enlace a juegos/bosque-letras/
+El progreso se guarda en el navegador del dispositivo.
