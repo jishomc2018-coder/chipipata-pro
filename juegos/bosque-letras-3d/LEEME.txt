@@ -1,0 +1,11 @@
+BOSQUE DE LETRAS 3D - CHIPIPATA
+
+Abra index.html con conexión a Internet. El motor gráfico Three.js se carga desde CDN.
+Controles: W/arriba para avanzar, A/D o flechas para girar, espacio para saltar.
+En celular use los botones de pantalla.
+Al llegar al portal se abre un ejercicio: arrastre la respuesta al cuadro o tóquela y luego toque el cuadro.
+8 mundos, 100 ejercicios. El avance se guarda en el navegador de cada dispositivo.
+Para GitHub Pages suba la carpeta bosque-letras-3d dentro de juegos.
+Esta versión es una primera aventura 3D ligera y no sustituye al juego anterior.
+
+NUEVO: Voz en español que lee la pregunta, palabra y las respuestas al tocarlas. Botón Escuchar la pregunta y opción para silenciar. Usa las voces disponibles en el navegador o dispositivo; en algunos equipos es necesario tocar el botón para iniciar el audio.
