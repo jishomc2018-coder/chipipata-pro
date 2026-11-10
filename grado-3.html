@@ -1,1 +1,145 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102b61"><title>3.º grado | Mundo Educativo Digital Chipipata</title><link rel="stylesheet" href="estilos.css"></head><body><header><nav class="nav"><a class="brand" href="index.html"><img src="insignia_ie34120.png" alt="Insignia de la institución"><span>MUNDO EDUCATIVO DIGITAL<small>IE 34120 · CHIPIPATA</small></span></a><div class="links"><a class="" href="index.html">INICIO</a><a class="active" href="grados.html">GRADOS</a><a class="" href="areas.html">ÁREAS</a><a class="" href="videojuegos.html">VIDEOJUEGOS</a><a class="" href="premios.html">PREMIOS</a></div></nav></header><main class="container"><div class="subhero"><h1>🎒 3.º grado</h1><p>Elige tu aventura y aprende jugando.</p></div><div class="actions"><a class="btn secondary" href="grados.html">← Volver a grados</a><a class="btn secondary" href="areas.html">📚 Ver áreas</a></div><h2 class="section-title">Juegos disponibles</h2><div class="grid"><a class="game" href="juegos/multiplica-kart-tercero/index.html"><span class="emoji">🏎️</span><div class="meta">Matemática · 3.º grado</div><h3>Multiplica Kart – Tercer Grado</h3><p>Conduce tu kart y resuelve multiplicaciones.</p><span class="go">▶ Jugar ahora →</span></a></div></main><footer class="footer">I.E. N.º 34120 «Almirante Miguel Grau» · Chipipata<br>Aprender jugando, explorar y crecer juntos 💙</footer></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b61">
+  <title>3.º grado | Mundo Educativo Digital Chipipata</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    .areas-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; margin:22px 0 36px; }
+    .area-card { display:flex; flex-direction:column; gap:9px; padding:22px; border-radius:18px; background:linear-gradient(135deg,#17418d,#2762ba); color:white; text-decoration:none; box-shadow:0 8px 22px rgba(10,39,95,.15); transition:transform .2s,box-shadow .2s; }
+    .area-card:hover,.area-card:focus-visible { transform:translateY(-3px); box-shadow:0 12px 26px rgba(10,39,95,.22); }
+    .area-card .area-emoji { font-size:2rem; }
+    .area-card strong { font-size:1.1rem; }
+    .area-card span:last-child { font-size:.9rem; opacity:.9; }
+    .area-section { margin:32px 0; scroll-margin-top:90px; }
+    .area-section h2 { margin-bottom:14px; }
+    .coming-soon { border:1px solid #dce7f5; border-radius:16px; padding:22px; background:#f4f8ff; color:#29466c; }
+    .back-areas { display:inline-block; margin-top:14px; font-weight:600; }
+    @media (prefers-reduced-motion:reduce) { .area-card { transition:none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="insignia_ie34120.png" alt="Insignia de la institución">
+        <span>MUNDO EDUCATIVO DIGITAL<small>IE 34120 · CHIPIPATA</small></span>
+      </a>
+      <div class="links">
+        <a href="index.html">INICIO</a>
+        <a class="active" href="grados.html">GRADOS</a>
+        <a href="areas.html">ÁREAS</a>
+        <a href="videojuegos.html">VIDEOJUEGOS</a>
+        <a href="premios.html">PREMIOS</a>
+      </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="subhero">
+      <h1>🎒 3.º grado</h1>
+      <p>Selecciona un área y aprende jugando con las actividades de tu grado.</p>
+    </div>
+    <div class="actions">
+      <a class="btn secondary" href="grados.html">← Volver a grados</a>
+      <a class="btn secondary" href="#areas-tercero">📚 Ver áreas de 3.º grado</a>
+    </div>
+    <h2 class="section-title" id="areas-tercero">Áreas de tercer grado</h2>
+    <div class="areas-grid">
+      <a class="area-card" href="#comunicacion">
+        <span class="area-emoji" aria-hidden="true">📖</span>
+        <strong>Comunicación</strong>
+        <span>Ver actividades →</span>
+      </a>
+      <a class="area-card" href="#matematica">
+        <span class="area-emoji" aria-hidden="true">🔢</span>
+        <strong>Matemática</strong>
+        <span>Ver actividades →</span>
+      </a>
+      <a class="area-card" href="#ciencia">
+        <span class="area-emoji" aria-hidden="true">🌱</span>
+        <strong>Ciencia y Tecnología</strong>
+        <span>Ver actividades →</span>
+      </a>
+      <a class="area-card" href="#personal-social">
+        <span class="area-emoji" aria-hidden="true">🌎</span>
+        <strong>Personal Social</strong>
+        <span>Ver actividades →</span>
+      </a>
+      <a class="area-card" href="#arte">
+        <span class="area-emoji" aria-hidden="true">🎨</span>
+        <strong>Arte y Cultura</strong>
+        <span>Ver actividades →</span>
+      </a>
+      <a class="area-card" href="#educacion-fisica">
+        <span class="area-emoji" aria-hidden="true">⚽</span>
+        <strong>Educación Física</strong>
+        <span>Ver actividades →</span>
+      </a>
+      <a class="area-card" href="#tutoria">
+        <span class="area-emoji" aria-hidden="true">💛</span>
+        <strong>Tutoría</strong>
+        <span>Ver actividades →</span>
+      </a>
+      <a class="area-card" href="#religion">
+        <span class="area-emoji" aria-hidden="true">🕊️</span>
+        <strong>Educación Religiosa</strong>
+        <span>Ver actividades →</span>
+      </a>
+    </div>
+    <section class="area-section" id="comunicacion">
+      <h2>📖 Comunicación · 3.º grado</h2>
+      <div class="coming-soon">🌟 Próximamente nuevas aventuras para tercer grado.</div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+    <section class="area-section" id="matematica">
+      <h2>🔢 Matemática · 3.º grado</h2>
+      <div class="grid">
+        <a class="game" href="juegos/multiplica-kart-tercero/index.html">
+          <span class="emoji">🏎️</span>
+          <div class="meta">Matemática · 3.º grado</div>
+          <h3>Multiplica Kart – Tercer Grado</h3>
+          <p>Conduce tu kart y resuelve multiplicaciones.</p>
+          <span class="go">▶ Jugar ahora →</span>
+        </a>
+      </div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+    <section class="area-section" id="ciencia">
+      <h2>🌱 Ciencia y Tecnología · 3.º grado</h2>
+      <div class="coming-soon">🌟 Próximamente nuevas aventuras para tercer grado.</div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+    <section class="area-section" id="personal-social">
+      <h2>🌎 Personal Social · 3.º grado</h2>
+      <div class="coming-soon">🌟 Próximamente nuevas aventuras para tercer grado.</div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+    <section class="area-section" id="arte">
+      <h2>🎨 Arte y Cultura · 3.º grado</h2>
+      <div class="coming-soon">🌟 Próximamente nuevas aventuras para tercer grado.</div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+    <section class="area-section" id="educacion-fisica">
+      <h2>⚽ Educación Física · 3.º grado</h2>
+      <div class="coming-soon">🌟 Próximamente nuevas aventuras para tercer grado.</div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+    <section class="area-section" id="tutoria">
+      <h2>💛 Tutoría · 3.º grado</h2>
+      <div class="coming-soon">🌟 Próximamente nuevas aventuras para tercer grado.</div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+    <section class="area-section" id="religion">
+      <h2>🕊️ Educación Religiosa · 3.º grado</h2>
+      <div class="coming-soon">🌟 Próximamente nuevas aventuras para tercer grado.</div>
+      <a class="back-areas" href="#areas-tercero">↑ Volver a las áreas</a>
+    </section>
+  </main>
+  <footer class="footer">
+    I.E. N.º 34120 «Almirante Miguel Grau» · Chipipata<br>
+    Aprender jugando, explorar y crecer juntos 💙
+  </footer>
+</body>
+</html>
