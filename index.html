@@ -1,1 +1,145 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102b61"><title>Inicio | Mundo Educativo Digital Chipipata</title><link rel="stylesheet" href="estilos.css"></head><body><header><nav class="nav"><a class="brand" href="index.html"><img src="insignia_ie34120.png" alt="Insignia de la institución"><span>MUNDO EDUCATIVO DIGITAL<small>IE 34120 · CHIPIPATA</small></span></a><div class="links"><a class="active" href="index.html">INICIO</a><a class="" href="grados.html">GRADOS</a><a class="" href="areas.html">ÁREAS</a><a class="" href="videojuegos.html">VIDEOJUEGOS</a><a class="" href="premios.html">PREMIOS</a></div></nav></header><main class="container"><section class="hero"><span class="tag">✨ PLATAFORMA EDUCATIVA INTERACTIVA</span><h1>¡Una aventura para aprender!</h1><p>Bienvenidos a MUNDO EDUCATIVO DIGITAL – CHIPIPATA. Descubre videojuegos, desafíos y nuevas experiencias de aprendizaje para primaria.</p><div class="actions"><a class="btn" href="grados.html">🎒 Elegir mi grado →</a><a class="btn secondary" href="videojuegos.html">🎮 Ver videojuegos</a></div></section><h2 class="section-title">Explora nuestra plataforma</h2><p class="intro">Cada botón te lleva a una página diferente.</p><div class="grid"><a class="tile" href="grados.html"><span class="emoji">🎒</span><h3>Grados</h3><p>Selecciona de primero a sexto grado.</p><span class="go">Explorar →</span></a><a class="tile" href="areas.html"><span class="emoji">📚</span><h3>Áreas</h3><p>Explora las áreas curriculares.</p><span class="go">Explorar →</span></a><a class="tile" href="videojuegos.html"><span class="emoji">🎮</span><h3>Videojuegos</h3><p>Accede a nuestras aventuras educativas.</p><span class="go">Explorar →</span></a><a class="tile" href="premios.html"><span class="emoji">🏆</span><h3>Premios</h3><p>Descubre los reconocimientos de aprendizaje.</p><span class="go">Explorar →</span></a></div><h2 class="section-title">Aventuras destacadas</h2><div class="grid"><a class="game" href="juegos/silabas-magicas/index.html"><span class="emoji">📖</span><div class="meta">Comunicación · 1.º grado</div><h3>Sílabas Mágicas</h3><p>Lee, escucha y descubre palabras en mundos mágicos.</p><span class="go">▶ Jugar ahora →</span></a><a class="game" href="juegos/diviaventura-segundo/index.html"><span class="emoji">🦊</span><div class="meta">Matemática · 2.º grado</div><h3>DiviAventura – La Gran Copa</h3><p>Cinco mundos y 80 desafíos de división.</p><span class="go">▶ Jugar ahora →</span></a><a class="game" href="juegos/multiplica-carrera/index.html"><span class="emoji">🏃</span><div class="meta">Matemática · 2.º grado</div><h3>Multiplica Carrera</h3><p>Carreras y retos de las tablas de multiplicar.</p><span class="go">▶ Jugar ahora →</span></a><a class="game" href="juegos/multiplica-kart-tercero/index.html"><span class="emoji">🏎️</span><div class="meta">Matemática · 3.º grado</div><h3>Multiplica Kart – Tercer Grado</h3><p>Conduce tu kart y resuelve multiplicaciones.</p><span class="go">▶ Jugar ahora →</span></a></div><h2 class="section-title">Nuestra institución</h2><p class="intro">Innovación pedagógica al servicio de los estudiantes de la I.E. N.º 34120 «Almirante Miguel Grau» de Chipipata.</p><img class="photo" src="imagenes/institucion.jpg" alt="Institución educativa"></main><footer class="footer">I.E. N.º 34120 «Almirante Miguel Grau» · Chipipata<br>Aprender jugando, explorar y crecer juntos 💙</footer></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mundo Educativo Digital de la Institución Educativa N.º 34120 Almirante Miguel Grau, Chipipata.">
+  <title>Mundo Educativo Digital | Chipipata</title>
+  <style>
+    :root{--azul:#12366c;--azul2:#1d60a5;--celeste:#eaf5ff;--amarillo:#ffcc55;--texto:#233247;--fondo:#f5f8fd}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.55}
+    a{text-decoration:none;color:inherit}img{max-width:100%}.contenedor{width:min(1120px,92%);margin:auto}
+    .barra{background:#fff;box-shadow:0 2px 14px #163b6617;position:relative;z-index:2}.barra .contenedor{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:90px;flex-wrap:wrap;padding:12px 0}
+    .marca{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--azul);line-height:1.2}.marca img{width:64px;height:64px;object-fit:contain}.marca small{display:block;font-size:.77rem;font-weight:600;color:#64748b;margin-top:5px}
+    nav{display:flex;gap:8px;flex-wrap:wrap}nav a{padding:9px 12px;border-radius:10px;font-weight:650;font-size:.93rem}nav a:hover,nav a:focus-visible{background:var(--celeste);color:var(--azul2)}
+    .hero{position:relative;min-height:410px;display:grid;place-items:center;text-align:center;color:white;background:linear-gradient(120deg,#082b57dd,#14579f99),url('foto-institución.jpg') center/cover no-repeat;padding:70px 16px}
+    .hero h1{font-size:clamp(2.15rem,5vw,4rem);line-height:1.12;margin:0 0 18px;text-shadow:0 3px 12px #0005}.hero p{font-size:clamp(1rem,2vw,1.25rem);max-width:760px;margin:0 auto 25px}.etiqueta{display:inline-block;background:#ffffff25;border:1px solid #ffffff6b;padding:7px 16px;border-radius:100px;margin-bottom:22px;font-weight:700}
+    .boton{display:inline-block;background:var(--amarillo);color:#1e3150;border-radius:12px;padding:13px 23px;font-weight:800;box-shadow:0 7px 16px #0002;transition:transform .2s}.boton:hover{transform:translateY(-2px)}
+    section{padding:58px 0}section h2{text-align:center;color:var(--azul);font-size:clamp(1.7rem,3vw,2.35rem);margin:0 0 10px}.subtitulo{text-align:center;color:#58677a;margin:0 auto 30px;max-width:720px}
+    .tarjetas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.tarjeta{background:#fff;border-radius:20px;padding:27px 20px;box-shadow:0 8px 25px #12366c12;border:1px solid #e6edf6;transition:transform .2s,box-shadow .2s}.tarjeta:hover,.tarjeta:focus-visible{transform:translateY(-4px);box-shadow:0 12px 30px #12366c24}.tarjeta .emoji{font-size:2.2rem;display:block;margin-bottom:10px}.tarjeta h3{color:var(--azul);margin:0 0 8px;font-size:1.3rem}.tarjeta p{color:#5d6a7d;margin:0 0 14px}.tarjeta .ir{font-weight:800;color:var(--azul2)}
+    .seccion-clara{background:#eaf3fd}.recursos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .galeria{max-width:920px;margin:0 auto;position:relative;background:#102b4b;border-radius:22px;overflow:hidden;box-shadow:0 14px 35px #12366c26}.galeria img{display:block;width:100%;height:clamp(250px,49vw,490px);object-fit:contain;background:#102b4b}.galeria .pie{background:#102b4b;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 20px;flex-wrap:wrap}.controles{display:flex;align-items:center;gap:9px}.control{border:1px solid #ffffff6b;background:#ffffff1e;color:#fff;border-radius:9px;min-width:39px;min-height:37px;cursor:pointer;font-size:1rem}.control:hover,.control:focus-visible{background:#ffffff38}.galeria .contador{font-variant-numeric:tabular-nums;color:#d5e5ff;font-weight:650}
+    .mensaje{background:linear-gradient(120deg,var(--azul),var(--azul2));color:#fff;border-radius:20px;text-align:center;padding:35px 25px}.mensaje h2{color:#fff}.mensaje p{margin-bottom:0}
+    footer{background:#102b4b;color:#e6f0ff;text-align:center;padding:28px 16px}footer p{margin:5px 0;font-size:.92rem}
+    @media(max-width:750px){.barra .contenedor{justify-content:center;text-align:center}.marca{justify-content:center}nav{justify-content:center}.tarjetas,.recursos{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{min-height:360px}}
+    @media(max-width:480px){.tarjetas,.recursos{grid-template-columns:1fr}section{padding:42px 0}.marca img{width:54px;height:54px}nav a{padding:7px 9px;font-size:.86rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="barra">
+    <div class="contenedor">
+      <a class="marca" href="index.html" aria-label="Volver al inicio">
+        <img src="insignia_ie34120.png" alt="Insignia de la Institución Educativa 34120">
+        <span>MUNDO EDUCATIVO DIGITAL<small>I.E. N.º 34120 «Almirante Miguel Grau» · Chipipata</small></span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a><a href="grados.html">Grados</a><a href="áreas.html">Áreas</a><a href="videojuegos.html">Videojuegos</a><a href="premios.html">Premios</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="contenedor">
+        <div class="etiqueta">🌟 Aprendemos, exploramos y crecemos juntos</div>
+        <h1>¡Bienvenidos a nuestro mundo educativo digital!</h1>
+        <p>Un espacio para aprender jugando, descubrir nuevas ideas y desarrollar nuestras habilidades con la tecnología.</p>
+        <a class="boton" href="#grados">Explorar los grados ↓</a>
+      </div>
+    </div>
+
+    <section id="grados" class="contenedor">
+      <h2>📚 Aprende según tu grado</h2>
+      <p class="subtitulo">Selecciona tu grado para descubrir actividades y recursos preparados para ti.</p>
+      <div class="tarjetas">
+        <a class="tarjeta" href="grado-1.html"><span class="emoji">🌱</span><h3>Primer grado</h3><p>Mis primeros descubrimientos.</p><span class="ir">Ingresar →</span></a>
+        <a class="tarjeta" href="grado-2.html"><span class="emoji">🌈</span><h3>Segundo grado</h3><p>Aprendo con entusiasmo.</p><span class="ir">Ingresar →</span></a>
+        <a class="tarjeta" href="grado-3.html"><span class="emoji">🚀</span><h3>Tercer grado</h3><p>Exploro nuevos conocimientos.</p><span class="ir">Ingresar →</span></a>
+        <a class="tarjeta" href="grado-4.html"><span class="emoji">🔎</span><h3>Cuarto grado</h3><p>Investigo y resuelvo retos.</p><span class="ir">Ingresar →</span></a>
+        <a class="tarjeta" href="grado-5.html"><span class="emoji">💡</span><h3>Quinto grado</h3><p>Creo, pienso y comparto.</p><span class="ir">Ingresar →</span></a>
+        <a class="tarjeta" href="grado-6.html"><span class="emoji">🏆</span><h3>Sexto grado</h3><p>Me preparo para nuevos desafíos.</p><span class="ir">Ingresar →</span></a>
+      </div>
+    </section>
+
+    <section class="seccion-clara">
+      <div class="contenedor">
+        <h2>🎯 Recursos para aprender</h2>
+        <p class="subtitulo">Elige una actividad y sigue aprendiendo de forma divertida.</p>
+        <div class="recursos">
+          <a class="tarjeta" href="áreas.html"><span class="emoji">🧠</span><h3>Áreas curriculares</h3><p>Descubre actividades de las distintas áreas de aprendizaje.</p><span class="ir">Explorar →</span></a>
+          <a class="tarjeta" href="videojuegos.html"><span class="emoji">🎮</span><h3>Videojuegos educativos</h3><p>Practica lo aprendido mediante juegos y desafíos.</p><span class="ir">Jugar →</span></a>
+          <a class="tarjeta" href="premios.html"><span class="emoji">🏅</span><h3>Premios y logros</h3><p>Celebra tu esfuerzo y tus avances.</p><span class="ir">Ver premios →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="contenedor">
+      <h2>📸 Nuestra comunidad aprende con tecnología</h2>
+      <p class="subtitulo">Momentos de aprendizaje de nuestros estudiantes utilizando tabletas digitales.</p>
+      <div class="galeria" aria-label="Galería de fotografías de estudiantes">
+        <img id="fotoGaleria" alt="Estudiantes de la institución trabajando con tabletas" loading="eager">
+        <div class="pie">
+          <span>💙 Aprendiendo con creatividad y tecnología</span>
+          <div class="controles">
+            <span class="contador" id="contador" aria-live="off">1 / 8</span>
+            <button class="control" id="anterior" type="button" aria-label="Fotografía anterior">❮</button>
+            <button class="control" id="pausa" type="button" aria-label="Pausar reproducción">⏸</button>
+            <button class="control" id="siguiente" type="button" aria-label="Fotografía siguiente">❯</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contenedor" style="padding-top:0">
+      <div class="mensaje"><h2>✨ ¡Cada día es una oportunidad para aprender!</h2><p>Institución Educativa N.º 34120 «Almirante Miguel Grau» – Chipipata</p></div>
+    </section>
+  </main>
+
+  <footer><p><strong>MUNDO EDUCATIVO DIGITAL – CHIPIPATA</strong></p><p>I.E. N.º 34120 «Almirante Miguel Grau»</p><p>Educación, innovación y tecnología al servicio del aprendizaje.</p></footer>
+
+  <script>
+    (() => {
+      // Los ocho archivos están en la carpeta principal del repositorio.
+      const archivos = [
+        'WhatsApp Image 2026-10-28 at 10.31.35 AM (3).jpeg',
+        'WhatsApp Image 2026-10-28 at 10.31.35 AM (4).jpeg',
+        'WhatsApp Image 2026-10-28 at 10.31.35 AM (5).jpeg',
+        'WhatsApp Image 2026-11-03 at 12.51.46 PM (1).jpeg',
+        'WhatsApp Image 2026-11-05 at 12.50.56 PM.jpeg',
+        'WhatsApp Image 2026-11-05 at 12.51.27 PM.jpeg',
+        'WhatsApp Image 2026-11-11 at 8.36.45 AM (1).jpeg',
+        'WhatsApp Image 2026-11-11 at 8.36.45 AM.jpeg'
+      ];
+      const foto = document.getElementById('fotoGaleria');
+      const contador = document.getElementById('contador');
+      const pausa = document.getElementById('pausa');
+      const galeria = document.querySelector('.galeria');
+      let actual = 0;
+      let reproduciendo = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let intervalo;
+      function mostrar(i) {
+        actual = (i + archivos.length) % archivos.length;
+        foto.src = encodeURIComponent(archivos[actual]);
+        foto.alt = `Estudiantes utilizando tabletas, fotografía ${actual + 1} de ${archivos.length}`;
+        contador.textContent = `${actual + 1} / ${archivos.length}`;
+      }
+      function detenerTemporizador() { if (intervalo) clearInterval(intervalo); intervalo = null; }
+      function iniciarTemporizador() { detenerTemporizador(); if (reproduciendo) intervalo = setInterval(() => mostrar(actual + 1), 4000); }
+      document.getElementById('anterior').addEventListener('click', () => { mostrar(actual - 1); iniciarTemporizador(); });
+      document.getElementById('siguiente').addEventListener('click', () => { mostrar(actual + 1); iniciarTemporizador(); });
+      pausa.addEventListener('click', () => {
+        reproduciendo = !reproduciendo;
+        pausa.textContent = reproduciendo ? '⏸' : '▶';
+        pausa.setAttribute('aria-label', reproduciendo ? 'Pausar reproducción' : 'Reanudar reproducción');
+        iniciarTemporizador();
+      });
+      galeria.addEventListener('mouseenter', detenerTemporizador);
+      galeria.addEventListener('mouseleave', iniciarTemporizador);
+      document.addEventListener('visibilitychange', () => { if (document.hidden) detenerTemporizador(); else iniciarTemporizador(); });
+      mostrar(0);
+      iniciarTemporizador();
+    })();
+  </script>
+</body>
+</html>
