@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misión Matemática: Los 7 Mundos · Desafíos y saltos</title>
+<style>
+:root{font-family:system-ui,'Segoe UI',sans-serif;color:#f5f9ff;background:#07111f}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#163958,#07111f 70%)}button{font:inherit;cursor:pointer;touch-action:none}header{padding:13px 20px;background:#061320e8;border-bottom:1px solid #ffffff25;display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}h1{font-size:clamp(19px,3vw,28px);margin:0}.muted{color:#b8d5eb;font-size:13px}.shell{max-width:1120px;margin:auto;padding:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}.stat{background:#142b41;border:1px solid #36526a;border-radius:12px;padding:9px;text-align:center}.stat b{display:block;color:#ffe18d;font-size:clamp(15px,3vw,24px)}.stat small{color:#c7dbea}.game{position:relative;border:3px solid #486886;border-radius:18px;overflow:hidden;background:#123;box-shadow:0 14px 38px #0009}canvas{display:block;width:100%;aspect-ratio:16/8;max-height:520px;min-height:240px}.overlay{position:absolute;inset:0;background:#051326d9;display:flex;justify-content:center;align-items:center;padding:16px;z-index:3}.hidden{display:none!important}.panel{background:linear-gradient(145deg,#193e5c,#0c2034);border:2px solid #6ca5c6;border-radius:20px;padding:22px;max-width:560px;width:100%;text-align:center;box-shadow:0 12px 30px #0008;max-height:96%;overflow:auto}.panel h2{margin:0 0 8px;font-size:clamp(22px,4vw,32px);color:#ffdf87}.panel p{line-height:1.5}.primary{background:#ffd65a;color:#172333;border:0;border-radius:12px;font-weight:900;padding:13px 22px;box-shadow:0 4px 0 #bb8d1e}.primary:active{transform:translateY(3px);box-shadow:none}.options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.option{border:2px solid #82b8d6;background:#224968;color:white;border-radius:13px;font-size:24px;font-weight:800;padding:12px}.option:hover,.option:focus{background:#326d96}.option.wrong{background:#873b48;border-color:#ff9a9a}.feedback{min-height:45px;color:#ffedab;font-weight:700}.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}.pad{display:flex;gap:9px}.ctrl{min-width:72px;min-height:62px;background:linear-gradient(#315d7d,#183a55);color:#fff;border:2px solid #8db9d4;border-radius:16px;font-size:24px;font-weight:900;box-shadow:0 5px 0 #0b2336;user-select:none;-webkit-user-select:none}.ctrl:active,.ctrl.active{transform:translateY(4px);box-shadow:0 1px 0 #0b2336;background:#3c84a4}.jump{background:linear-gradient(#cf9b35,#8c6018);border-color:#ffe19a}.help{margin-top:10px;color:#c5d9e9;font-size:13px;line-height:1.5}.bar{height:11px;background:#1c3b55;border-radius:20px;overflow:hidden;margin:10px 0 4px}.bar>div{height:100%;width:0;background:linear-gradient(90deg,#46d6a5,#f8db5c);transition:width .3s}.footer{font-size:12px;color:#a9c3d5;text-align:center;padding:16px}.tag{background:#235170;border-radius:20px;padding:5px 11px;font-size:12px}.tiny{background:#29465b;border:1px solid #6888a0;color:#fff;border-radius:9px;padding:7px 10px}.question{font-size:clamp(26px,5vw,42px);font-weight:900;margin:9px 0}.confetti{font-size:25px}button:focus-visible{outline:3px solid #fff;outline-offset:2px}@media(max-width:520px){.shell{padding:8px}.stat{padding:7px 3px}.stat small{font-size:10px}.controls{justify-content:center}.ctrl{min-width:65px;min-height:60px}.panel{padding:15px}.options{gap:7px}.option{padding:10px}.help{text-align:center}}
+</style></head><body>
+<header><div><h1>🚀 Misión Matemática: Los 7 Mundos</h1><div class="muted">3.º de primaria · I.E. N.º 34120 «Almirante Miguel Grau» · Chipipata</div></div><div><span class="tag">🎮 Aventura de multiplicaciones</span> <button class="tiny" id="sound">🔊 Sonido</button></div></header>
+<main class="shell">
+<div id="studentBanner" style="font-weight:750;margin:0 0 10px;color:#ffe49c">👋 ¡Bienvenido a tu aventura!</div><div class="stats"><div class="stat"><b id="worldStat">1 / 7</b><small>Mundo</small></div><div class="stat"><b id="questionStat">0 / 80</b><small>Retos superados</small></div><div class="stat"><b id="starStat">0 ⭐</b><small>Primer intento</small></div><div class="stat"><b id="gradeStat">—</b><small>Nota estimada / 20</small></div></div>
+<div class="game"><canvas id="scene" width="1120" height="560" aria-label="Escenario de aventura con un personaje que se mueve mediante controles"></canvas>
+<div id="start" class="overlay"><div class="panel"><div class="confetti">🌎 🏃 ⭐</div><h2>¡Comienza la aventura!</h2><p>Recorre <b>7 mundos</b> y supera <b>80 multiplicaciones</b>. Camina, salta sobre cajas y cruza fosos para llegar al portal. Si caes, reaparecerás al inicio del recorrido sin perder tus respuestas. Cuando llegues al portal brillante aparecerá un reto matemático.</p><p>Si aciertas, recibirás una felicitación y se abrirá el camino. Si fallas, tendrás otra oportunidad y una pista.</p><label for="studentName" style="display:block;text-align:left;margin:12px 0 6px;font-weight:700">👧🧒 Nombre del estudiante</label><input id="studentName" maxlength="45" autocomplete="given-name" placeholder="Escribe tu nombre" style="width:100%;padding:13px;border-radius:12px;border:2px solid #8db9d4;background:#f5fbff;color:#132c42;font:inherit;margin-bottom:9px" aria-label="Nombre del estudiante"><div id="nameError" class="muted" style="min-height:20px;color:#ffcf9c"></div><button class="primary" id="startBtn">▶ INICIAR MISIÓN</button></div></div>
+<div id="quiz" class="overlay hidden"><div class="panel"><div class="tag" id="quizWorld"></div><h2>🧠 ¡Portal matemático!</h2><div class="question" id="expression">2 × 3 = ?</div><div class="options" id="options"></div><div class="feedback" id="feedback" aria-live="polite">Elige la respuesta correcta para avanzar.</div><button id="continue" class="primary hidden">¡Seguir explorando! ➜</button></div></div>
+<div id="transition" class="overlay hidden"><div class="panel"><div class="confetti">🎆 🏆 🎆</div><h2 id="transitionTitle">¡Mundo completado!</h2><p id="transitionText"></p><button id="nextWorld" class="primary">Entrar al siguiente mundo ➜</button></div></div>
+<div id="end" class="overlay hidden"><div class="panel"><div class="confetti">🏆 🎉 🌟</div><h2>¡Misión completada!</h2><p>¡Has explorado los siete mundos y resuelto los 80 desafíos!</p><h2 id="finalGrade">20 / 20</h2><p id="finalDetails"></p><button id="restart" class="primary">🔄 Jugar otra vez</button></div></div></div>
+<div class="bar"><div id="progress"></div></div><div class="muted" id="status">Salta las cajas y los fosos para alcanzar el portal luminoso.</div>
+<div class="controls"><div class="pad"><button class="ctrl" id="left" aria-label="Caminar a la izquierda">◀</button><button class="ctrl" id="right" aria-label="Caminar a la derecha">▶</button><button class="ctrl jump" id="jump" aria-label="Saltar">⤒<div style="font-size:12px">SALTAR</div></button></div><div class="muted">⌨️ Teclado: ← → y espacio<br>📱 Tableta o celular: botones táctiles</div><button class="tiny" id="reset">↻ Reiniciar</button></div>
+<div class="help">💡 Salta sobre las cajas y cruza los fosos. Si caes, vuelves al inicio del camino sin perder tus avances. Cada portal presenta una multiplicación. Las respuestas incorrectas no impiden continuar: el niño puede volver a intentarlo. La nota refleja los aciertos al primer intento (cada pregunta vale 0,25 puntos). El avance se guarda automáticamente en este dispositivo.</div>
+</main><div class="footer">MUNDO EDUCATIVO DIGITAL – CHIPIPATA · Juego educativo original, sin violencia</div>
+<script>
+(()=>{
+'use strict';
+const names=['Bosque Esmeralda','Desierto Dorado','Montañas de Hielo','Valle Volcánico','Ciudad Oceánica','Estación Espacial','Fortaleza Estelar'];
+const counts=[10,10,12,12,12,12,12], starts=[0,10,20,32,44,56,68];
+const palettes=[
+{sky:['#65c7f0','#c6f1df'],far:'#72b0a0',mid:'#377e68',ground:'#27563b',floor:'#58ad61',accent:'#f5e89b'},
+{sky:['#f4ad64','#ffe0a0'],far:'#d7a267',mid:'#bd7d42',ground:'#8a5b35',floor:'#e3a957',accent:'#fff3b3'},
+{sky:['#65a4dc','#e6faff'],far:'#a8d2e5',mid:'#669cba',ground:'#4e829a',floor:'#d5f8ff',accent:'#fff'},
+{sky:['#541d40','#f58a51'],far:'#9c3c4b',mid:'#612b39',ground:'#392936',floor:'#df7052',accent:'#ffc272'},
+{sky:['#0b6a9e','#70d8da'],far:'#328eb1',mid:'#246c92',ground:'#194b70',floor:'#52c5c6',accent:'#d2ffff'},
+{sky:['#0b123e','#384e91'],far:'#303b78',mid:'#202a5a',ground:'#192744',floor:'#7388c8',accent:'#b8f6ff'},
+{sky:['#170d42','#a04eab'],far:'#65449c',mid:'#4b347a',ground:'#28204e',floor:'#a16fd5',accent:'#ffe6a4'}
+];
+const c=document.getElementById('scene'),ctx=c.getContext('2d'),W=c.width,H=c.height;
+const $=id=>document.getElementById(id);
+const saveKey='chipipata_matematica_7mundos_v2';
+let state={index:0,first:0,misses:0,name:''},active=false,locked=false,sound=true;
+try{const s=JSON.parse(localStorage.getItem(saveKey));if(s&&Number.isInteger(s.index)&&s.index>=0&&s.index<=80)state={index:s.index,first:s.first||0,misses:s.misses||0,name:typeof s.name==='string'?s.name:''}}catch(e){}
+let px=90,py=0,vy=0,onGround=true,walk=0,face=1,camera=0,last=0,particles=[],shake=0,falls=0;
+const keys={left:false,right:false,jump:false};let audio;
+function beep(freq=500,dur=.1,type='sine'){if(!sound)return;try{audio=audio||new (window.AudioContext||window.webkitAudioContext)();let o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.setValueAtTime(freq,audio.currentTime);g.gain.setValueAtTime(.08,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+dur);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+dur)}catch(e){}}
+function save(){try{localStorage.setItem(saveKey,JSON.stringify(state))}catch(e){}}
+function world(){return Math.min(6,starts.reduce((a,s,i)=>state.index>=s?i:a,0))}
+function localIndex(){return state.index-starts[world()]}
+function update(){let w=world();$('studentBanner').textContent=state.name?'🧑‍🚀 Explorador(a): '+state.name:'👋 ¡Bienvenido a tu aventura!';$('worldStat').textContent=(w+1)+' / 7';$('questionStat').textContent=state.index+' / 80';$('starStat').textContent=state.first+' ⭐';$('gradeStat').textContent=state.index?((state.first/80)*20).toFixed(2):'—';$('progress').style.width=(state.index/80*100)+'%';$('status').textContent='🌍 '+names[w]+' · Reto '+Math.min(localIndex()+1,counts[w])+' de '+counts[w]+' · Camina hasta el portal luminoso.'}
+function resetPosition(){px=90;py=0;vy=0;camera=0;onGround=true;particles=[];falls=0}
+function open(id){['start','quiz','transition','end'].forEach(k=>$(k).classList.add('hidden'));if(id)$(id).classList.remove('hidden');locked=!!id;keys.left=keys.right=keys.jump=false}
+const questions=[];
+for(let i=0;i<80;i++){let w=starts.reduce((a,s,j)=>i>=s?j:a,0),a,b;if(w===0){a=2+i%4;b=1+(i*3)%5}else if(w===1){a=3+i%5;b=2+(i*7)%7}else if(w===2){a=4+i%6;b=3+(i*5)%7}else if(w===3){a=5+i%6;b=4+(i*7)%8}else if(w===4){a=6+i%6;b=5+(i*5)%8}else if(w===5){a=7+i%6;b=6+(i*7)%7}else{a=8+i%5;b=7+(i*5)%6}questions.push({a,b,answer:a*b})}
+let wrongCurrent=false,answered=false;
+function showQuiz(){if(locked)return;open('quiz');wrongCurrent=false;answered=false;let q=questions[state.index],correct=q.answer;$('quizWorld').textContent='Mundo '+(world()+1)+' · '+names[world()]+' · Pregunta '+(state.index+1)+' de 80';$('expression').textContent=q.a+' × '+q.b+' = ?';$('feedback').textContent='Selecciona la respuesta para abrir el portal.';$('continue').classList.add('hidden');let choices=new Set([correct]);for(let delta of [q.a,q.b,2*q.a,3,7,11,-q.a,-q.b]){if(choices.size>=4)break;let v=correct+delta;if(v>0&&v!==correct)choices.add(v)}let arr=[...choices].sort(()=>Math.random()-.5);$('options').innerHTML='';arr.forEach(n=>{let b=document.createElement('button');b.className='option';b.textContent=n;b.addEventListener('click',()=>answer(n,b));$('options').appendChild(b)})}
+function answer(n,b){if(answered)return;let q=questions[state.index];if(n!==q.answer){wrongCurrent=true;state.misses++;save();b.classList.add('wrong');$('feedback').textContent='💪 ¡Buen intento! Pista: '+q.a+' grupos de '+q.b+'. Cuenta de '+q.b+' en '+q.b+'. ¡Intenta otra vez!';beep(210,.17,'triangle');setTimeout(()=>b.classList.remove('wrong'),600);return}answered=true;if(!wrongCurrent)state.first++;state.index++;save();update();beep(660,.12);setTimeout(()=>beep(880,.18),120);$('feedback').textContent=wrongCurrent?'🎉 ¡Lo lograste! Tu esfuerzo te hizo avanzar.':'🌟 ¡Excelente! ¡Respuesta correcta al primer intento!';[...$('options').children].forEach(x=>x.disabled=true);b.style.background='#167e62';$('continue').classList.remove('hidden');for(let i=0;i<35;i++)particles.push({x:px-camera+30,y:340,vx:(Math.random()-.5)*9,vy:-Math.random()*8-1,life:55,color:['#ffe26b','#7ff5de','#ff8db4'][i%3]})}
+function continueGame(){open(null);if(state.index>=80){endGame();return}let next=starts.slice(1).includes(state.index);if(next){let w=world();$('transitionTitle').textContent='🌟 ¡Estás a punto de llegar al Mundo '+(w+1)+'!';$('transitionText').textContent='¡Felicitaciones, '+state.name+'! Superaste el Mundo '+w+'. Tu próxima aventura será en '+names[w]+'. ¿Preparado(a) para explorar?';$('nextWorld').textContent='🚀 ¡Entrar al Mundo '+(w+1)+'!';open('transition');beep(950,.2)}else{resetPosition();update()}}
+function endGame(){open('end');let grade=state.first/4;$('finalGrade').textContent='Nota: '+grade.toFixed(2)+' / 20';$('finalDetails').textContent='Estudiante: '+state.name+'. Aciertos al primer intento: '+state.first+' de 80. Intentos adicionales: '+state.misses+'. ¡Felicitaciones por tu perseverancia!';beep(800,.3)}
+$('studentName').value=state.name;
+$('studentName').addEventListener('keydown',e=>{if(e.key==='Enter'){$('startBtn').click()}});
+$('startBtn').onclick=()=>{let name=$('studentName').value.trim().replace(/\\s+/g,' ');if(!name){$('nameError').textContent='Por favor, escribe tu nombre para comenzar.';$('studentName').focus();return}if(name!==state.name){state={index:0,first:0,misses:0,name};save()}$('nameError').textContent='';if(state.index>=80){endGame()}else{resetPosition();update();open(null)}};
+$('continue').onclick=continueGame;$('nextWorld').onclick=()=>{resetPosition();update();open(null)};
+$('restart').onclick=()=>{state={index:0,first:0,misses:0,name:state.name};save();resetPosition();update();open(null)};
+$('reset').onclick=()=>{if(confirm('¿Deseas empezar los 80 retos desde cero?')){state={index:0,first:0,misses:0,name:state.name};save();resetPosition();update();open('start')}};
+$('sound').onclick=()=>{sound=!sound;$('sound').textContent=sound?'🔊 Sonido':'🔇 Silencio'};
+for(let k of ['left','right','jump']){let el=$(k);const down=e=>{e.preventDefault();keys[k]=true;el.classList.add('active');if(k==='jump')jump()};const up=e=>{e.preventDefault();keys[k]=false;el.classList.remove('active')};el.addEventListener('pointerdown',down);el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);el.addEventListener('pointerleave',up)}
+window.addEventListener('keydown',e=>{let k=e.key==='ArrowLeft'?'left':e.key==='ArrowRight'?'right':(e.code==='Space'||e.key==='ArrowUp')?'jump':null;if(k){e.preventDefault();keys[k]=true;if(k==='jump'&&!e.repeat)jump()}});window.addEventListener('keyup',e=>{let k=e.key==='ArrowLeft'?'left':e.key==='ArrowRight'?'right':(e.code==='Space'||e.key==='ArrowUp')?'jump':null;if(k)keys[k]=false});window.addEventListener('blur',()=>{keys.left=keys.right=keys.jump=false});
+function jump(){if(!locked&&onGround){vy=-15.2;onGround=false;beep(350,.09)}}
+function rect(x,y,w,h,color){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+function circle(x,y,r,color){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()}
+function poly(points,color){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.fillStyle=color;ctx.fill()}
+function obstacles(){let w=world(),shift=(w%3)*8;return [
+{type:'crate',x:245+shift,width:55,height:53},
+{type:'gap',x:425+shift,width:90+(w%2)*12},
+{type:'crate',x:630+shift,width:65,height:67},
+{type:'gap',x:815+shift,width:100},
+{type:'crate',x:1010+shift,width:50,height:45}
+]}
+function isGround(x){return !obstacles().some(o=>o.type==='gap'&&x>o.x+8&&x<o.x+o.width-8)}
+function rand(i){let x=Math.sin(i*78.233+world()*31.77)*43758.5453;return x-Math.floor(x)}
+function draw(t){let w=world(),p=palettes[w],g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,p.sky[0]);g.addColorStop(1,p.sky[1]);rect(0,0,W,H,g);
+let starry=w>=5;for(let i=0;i<(starry?95:18);i++){let x=(rand(i+1)*W*1.6-camera*.08)%W;if(x<0)x+=W;let y=rand(i+55)*320;if(starry)circle(x,y,rand(i+11)*2+.4,'#ffffffc9');else if(i<4)circle(x,y,30+rand(i+3)*20,'#ffffff25')}
+circle(w===5?900:850-camera*.05,100,w===5?53:64,w===3?'#ff965e':w===5?'#b8d8f5':w===6?'#ffe5b0':'#fff3c0');
+for(let layer=0;layer<2;layer++){let color=layer?p.mid:p.far,scale=layer?.3:.12,base=layer?365:300;for(let i=-2;i<12;i++){let x=i*165-(camera*scale%165);if(w===0){circle(x+65,base-55,70,color);circle(x+125,base-20,62,color);rect(x+60,base-15,24,180,color)}else if(w===1){poly([[x-35,base+80],[x+80,base-95],[x+190,base+80]],color)}else if(w===2){poly([[x-50,base+70],[x+80,base-155],[x+210,base+70]],color);poly([[x+33,base-75],[x+80,base-155],[x+127,base-75]],'#eafaffad')}else if(w===3){poly([[x-40,base+80],[x+90,base-110],[x+195,base+80]],color);if(layer)poly([[x+54,base-65],[x+90,base-110],[x+122,base-65]],'#ff9154')}else if(w===4){rect(x+20,base-80,100,200,color);rect(x+40,base-130,58,50,color);for(let j=0;j<3;j++)rect(x+35+j*26,base-50,12,19,'#a6faff8a')}else if(w===5){rect(x+10,base-70,140,145,color);circle(x+80,base-70,70,color);rect(x+20,base-105,120,8,'#c1d4ff70')}else{rect(x+20,base-65,125,165,color);rect(x+40,base-110,30,55,color);rect(x+95,base-120,30,65,color);poly([[x+20,base-65],[x+80,base-145],[x+145,base-65]],color)}}}
+rect(0,450,W,110,p.ground);rect(0,450,W,14,p.floor);
+for(let o of obstacles()){let ox=o.x-camera;if(ox>W+100||ox<-120)continue;if(o.type==='gap'){rect(ox,449,o.width,111,'#091325');rect(ox+4,454,o.width-8,5,'#f7a54b');for(let j=0;j<4;j++)poly([[ox+j*o.width/4,555],[ox+o.width/8+j*o.width/4,525],[ox+o.width/4+j*o.width/4,555]],'#ba5570')}else{rect(ox,450-o.height,o.width,o.height,'#865a35');rect(ox+5,455-o.height,o.width-10,o.height-10,'#bc8c53');ctx.strokeStyle='#583b2b';ctx.lineWidth=5;ctx.strokeRect(ox+5,455-o.height,o.width-10,o.height-10);ctx.beginPath();ctx.moveTo(ox+8,458-o.height);ctx.lineTo(ox+o.width-8,445);ctx.stroke();ctx.fillStyle='#ffe7a0';ctx.font='bold 14px system-ui';ctx.fillText('⬆',ox+o.width/2-8,435-o.height)}}
+
+for(let i=0;i<28;i++){let x=i*70-(camera%70);rect(x,460+rand(i+30)*40,18,5,p.floor);if(w===0){rect(x+10,432,5,19,'#1e6337');circle(x+12,431,9,'#a5e96d')}else if(w===1){circle(x+15,443,4,'#f4df9b')}else if(w===3){rect(x+15,460,30,4,'#ff9850')}else if(w===4){circle(x+15,430,5,'#b4fcff')}else if(w===5){rect(x+10,463,22,5,'#b6d3ff')}else if(w===6){circle(x+15,445,3,'#eec9ff')}}
+let portalX=1210-camera,glow=.5+.5*Math.sin(t*.004);ctx.save();ctx.shadowBlur=35+glow*22;ctx.shadowColor=p.accent;ctx.strokeStyle=p.accent;ctx.lineWidth=9;ctx.beginPath();ctx.ellipse(portalX,382,36,70,0,0,Math.PI*2);ctx.stroke();ctx.restore();ctx.fillStyle='#ffffff35';ctx.beginPath();ctx.ellipse(portalX,382,28,62,0,0,Math.PI*2);ctx.fill();for(let i=0;i<7;i++)circle(portalX+Math.sin(t*.002+i)*25,380+Math.cos(t*.002+i)*53,3,p.accent);
+ctx.fillStyle='#fff';ctx.font='bold 17px system-ui';ctx.textAlign='center';ctx.fillText('🧠 RETO',portalX,287);
+for(let i=0;i<3;i++){let x=280+i*145-camera;if(x>0&&x<W){rect(x,430,40,20,'#1b4350');circle(x+20,425,14,'#d3a765')}}
+let x=px-camera,y=450+py,step=Math.sin(walk)*9;ctx.save();ctx.translate(x,y);ctx.scale(face,1);ctx.fillStyle='#0005';ctx.beginPath();ctx.ellipse(0,0,24,6,0,0,7);ctx.fill();ctx.lineWidth=9;ctx.strokeStyle='#152e45';ctx.lineCap='round';ctx.beginPath();ctx.moveTo(-9,-31);ctx.lineTo(-11+step,-7);ctx.moveTo(9,-31);ctx.lineTo(11-step,-7);ctx.stroke();rect(-16,-70,32,39,'#2d7ce0');rect(-16,-70,32,9,'#ffdb6d');ctx.lineWidth=8;ctx.strokeStyle='#e7ac80';ctx.beginPath();ctx.moveTo(-15,-61);ctx.lineTo(-24-step*.45,-40);ctx.moveTo(15,-61);ctx.lineTo(24+step*.45,-40);ctx.stroke();circle(0,-86,18,'#f3bd8c');rect(-18,-105,37,12,'#173f73');rect(-11,-110,25,10,'#2463a3');circle(7,-87,2.7,'#193043');ctx.restore();
+particles=particles.filter(q=>q.life>0);particles.forEach(q=>{circle(q.x,q.y,3,q.color);q.x+=q.vx;q.y+=q.vy;q.vy+=.17;q.life--});
+ctx.textAlign='left';ctx.font='bold 19px system-ui';ctx.fillStyle='#ffffff';ctx.fillText('🌍 '+names[w],22,33);ctx.font='15px system-ui';ctx.fillText('¡Salta cajas y fosos para llegar al portal! →',22,59);
+if(localIndex()===counts[w]-1&&w<6){ctx.fillStyle='#fff3a6';ctx.font='bold 18px system-ui';ctx.fillText('🌟 ¡Estás a punto de llegar al Mundo '+(w+2)+'!',22,88)}
+}
+function loop(t){let dt=Math.min((t-last)/16.67||1,2);last=t;
+if(!locked){
+let oldX=px,oldY=py,dx=(Number(keys.right)-Number(keys.left))*4.6*dt;
+if(dx){face=Math.sign(dx);walk+=.21*dt}else walk*=.85;
+let nx=Math.max(40,Math.min(1220,px+dx));
+for(let o of obstacles()){if(o.type!=='crate')continue;
+let overlap=nx+15>o.x&&nx-15<o.x+o.width;
+if(overlap&&py> -o.height+6&&oldY> -o.height+6){
+if(dx>0&&oldX+15<=o.x+5)nx=o.x-15;
+if(dx<0&&oldX-15>=o.x+o.width-5)nx=o.x+o.width+15;
+}}
+px=nx;vy+=.73*dt;py+=vy*dt;onGround=false;
+let platform=0;
+for(let o of obstacles()){if(o.type==='crate'&&px+12>o.x&&px-12<o.x+o.width&&oldY<=-o.height+5&&py>=-o.height&&vy>=0){platform=Math.min(platform,-o.height)}}
+if(py>=platform&&vy>=0&&(platform<0||isGround(px))){py=platform;vy=0;onGround=true}
+if(py>170){falls++;px=90;py=0;vy=0;onGround=true;beep(180,.25,'sawtooth');$('status').textContent='💪 ¡Buen intento! Vuelve a saltar para superar los obstáculos.'}
+camera=Math.max(0,Math.min(350,px-350));
+if(px>=1175){px=1175;showQuiz()}
+}
+draw(t);requestAnimationFrame(loop)}
+update();if(state.index>=80){$('startBtn').textContent='🏆 Ver mi resultado'}requestAnimationFrame(loop);
+})();
+</script></body></html>
